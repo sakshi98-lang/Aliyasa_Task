@@ -1,0 +1,18 @@
+<div class="controls">
+    <button (click)="addBox()" class="add-button">Add Square</button>
+    <input 
+      type="text" 
+      [(ngModel)]="newTitle" 
+      placeholder="Enter square title" 
+      class="title-input">
+  </div>
+  
+  <div fxLayout="row wrap" fxLayoutGap="10px" class="container">
+    <app-box
+      *ngFor="let box of boxes; let i = index"
+      [number]="box.id"
+      [title]="box.title"
+      (delete)="deleteBox(box.id)">
+    </app-box>
+  </div>
+  
